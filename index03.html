@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Let's drown!</title>
+	<link href="https://fonts.googleapis.com/css?family=Notable&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
+
+		<style type="text/css">
+			#scuba {position: absolute; top: 50px; left: 900px; width: 250px; z-index: 999;}
+			#scuba:hover {opacity: 0.6;}
+			#water {position: absolute; top: 250px; margin-left: 250px; opacity: 0; background: url('water.gif'); background-size: 100% auto;}
+			#mybody{background-repeat: no-repeat;background-size: 100% auto;}
+			body {background:  url('spaspa.gif');}
+			#spout{position: absolute; top: 250px; left: 450px; width: 500px;}
+			#goggles{position: absolute; opacity: 0; width: 170px; top: 20px; left: 1050px;}
+			#goggles:hover {opacity: 0.3;}
+
+			#que01{position: absolute; opacity: 0; width: 150px; top: 200px; margin-left: 250px;}
+			#que02{position: absolute; opacity: 0; width: 150px; top: 500px; margin-left: 450px;}
+			#que03{position: absolute; opacity: 0; width: 150px; top: 200px; margin-left: 650px;}
+			#que04{position: absolute; opacity: 0; width: 150px; top: 500px; margin-left: 850px;}
+			#que05{position: absolute; opacity: 0; width: 150px; top: 200px; margin-left: 1050px;}
+
+
+			#spa01{position: absolute; opacity: 0; top: 150px; margin-left: 100px; width: 450px; border-radius: 50%; display: inline-block;}
+			#spa02{position: absolute; opacity: 0; top: 400px; margin-left: 250px; border-radius: 50%; display: inline-block; width: 500px;}
+			#spa03{position: absolute; opacity: 0; top: 150px; margin-left: 500px; border-radius: 50%; display: inline-block; width: 450px}
+			#spa04{position: absolute; opacity: 0; top: 300px; margin-left: 750px; border-radius: 50%; display: inline-block;  width: 400px}
+			#spa05{position: absolute; opacity: 0; top: 200px; margin-left: 1000px; border-radius: 50%; display: inline-block;  width: 500px}
+
+
+			p {font-family: 'Black Han Sans', sans-serif; font-size: 25pt; text-align: center; font-style: bold;}
+			#sen { margin-top: 50px;}
+			#ten { margin-top: -75px; opacity: 0;}
+			#tten { margin-top: -25px; opacity: 0; font-size: 20pt;}
+			#hispa01 { margin-top: -75px; padding-left: 450px; opacity: 0; position: absolute;}
+			#hispa02 { margin-top: -75px; padding-left: 650px; opacity: 0; position: absolute;}
+			#hispa03 { margin-top: -75px; padding-left: 500px; opacity: 0; position: absolute;}
+			#hispa04 { margin-top: -75px; padding-left: 550px; opacity: 0; position: absolute;}
+			#hispa05 { margin-top: -75px; padding-left: 650px; opacity: 0; position: absolute;}
+
+
+		</style>
+
+</head>
+
+<body id="mybody">
+	<p id="sen">소용돌이 속으로 드래그 해보세요! 👉 </p>
+	<img src="scuba.gif" id="scuba" class="drag">
+
+	<img src="water.gif" id="water">
+	<img src="spout.png" id="spout">
+	<audio src="drowning.wav" id="aa"></audio>
+
+	<img src="goggles.gif" id="goggles" class="drag">
+	<audio src="flow.wav" loop id="bb"></audio>
+
+	<img src="que01.png" id="que01">
+	<audio src="rat.wav" loop id="cc"></audio>
+
+	<img src="que02.png" id="que02">
+	<audio src="minion.wav" loop id="dd"></audio>
+
+	<img src="que03.png" id="que03">
+	<audio src="laugh.mp3" loop id="ee"></audio>
+
+	<img src="que04.png" id="que04">
+	<audio src="splash.wav" loop id="ff"></audio>
+
+	<img src="que05.png" id="que05">
+	<audio src="duck.wav" loop id="gg"></audio>
+
+
+	<p id="ten">고글로 보고싶은 부분을 클릭해보세요! 👉 </p>
+	<p id="tten">다른 친구들을 만나고 싶으면 다시 클릭해서 멈춰주세요!</p>
+	<p id="hispa01">안녕하새오 저는 캐피바라애오. 몰래 들어왔어오.</p>
+	<p id="hispa02">뽀쟉뽀쟉뽀쟉</p>
+	<p id="hispa03">안녕하새요 개시원해오. 주인님 체고애오.</p>
+	<p id="hispa04">어푸어푸 어뗘 이게 바로 개헤엄이여.</p>
+	<p id="hispa05">꽉? 멀미난다꽉...</p>
+	<img src="spa01.gif" id="spa01">
+	<img src="spa02.gif" id="spa02">
+	<img src="spa03.gif" id="spa03">
+	<img src="spa04.gif" id="spa04">
+	<img src="spa05.gif" id="spa05">
+
+
+		<script type="text/javascript">
+
+				var astate = "off";
+			scuba.onclick = function(){
+			if(astate == "off"){
+				aa.play();
+				astate = "on";
+			}else{
+				aa.pause();
+				astate = "off";
+			}
+				mybody.style.background = "url('water.gif')";
+				mybody.style.backgroundSize = "100% auto";
+				scuba.style.opacity = "0";
+				spout.style.opacity = "0";
+				que01.style.opacity = "2";
+				que01.style.zIndex = "999";
+				que02.style.opacity = "2";
+				que02.style.zIndex = "999";
+				que03.style.opacity = "2";
+				que03.style.zIndex = "999";
+				que04.style.opacity = "2";
+				que04.style.zIndex = "999";
+				que05.style.opacity = "2";
+				que05.style.zIndex = "999";
+				spa01.style.opacity = "0";
+				spa02.style.opacity = "0";
+				spa03.style.opacity = "0";
+				spa04.style.opacity = "0";
+				spa05.style.opacity = "0";
+				sen.style.opacity = "0";
+				ten.style.opacity = "2";
+				tten.style.opacity = "2";
+				goggles.style.opacity = "2";
+				
+			}
+		</script>
+
+
+		<script type="text/javascript">
+			var bstate = "off";
+		goggles.onmouseover = function(){
+				bb.play();
+			}
+		</script>
+
+
+		<script type="text/javascript">
+				var cstate = "off";
+			que01.onmouseover = function(){
+			if(cstate == "off"){
+				cc.play();
+				spa01.style.opacity = "2";
+				que01.style.opacity = "0";
+				ten.style.opacity = "0";
+				tten.style.opacity = "0";
+				hispa01.style.opacity = "2";
+				bb.pause();
+				cstate = "on";
+			}else{
+				cc.pause();
+				bb.play();
+				spa01.style.opacity = "0";
+				que01.style.opacity = "2";
+				ten.style.opacity = "2";
+				tten.style.opacity = "2";
+				hispa01.style.opacity = "0";
+				cstate = "off";
+			}
+				spa02.style.opacity = "0";
+				spa03.style.opacity = "0";
+				spa04.style.opacity = "0";
+				spa05.style.opacity = "0";
+				que02.style.opacity = "2";
+				que03.style.opacity = "2";
+				que04.style.opacity = "2";
+				que05.style.opacity = "2";
+				hispa02.style.opacity = "0";
+				hispa03.style.opacity = "0";
+				hispa04.style.opacity = "0";
+				hispa05.style.opacity = "0";
+				}
+		</script>
+
+
+		<script type="text/javascript">
+				var dstate = "off";
+			que02.onclick = function(){
+			if(dstate == "off"){
+				dd.play();
+				spa02.style.opacity = "2";
+				que02.style.opacity = "0";
+				ten.style.opacity = "0";
+				tten.style.opacity = "0";
+				hispa02.style.opacity = "2";
+				bb.pause();
+				dstate = "on";
+			}else{
+				dd.pause();
+				bb.play();
+				spa02.style.opacity = "0";
+				que02.style.opacity = "2";
+				ten.style.opacity = "2";
+				tten.style.opacity = "2";
+				hispa02.style.opacity = "0";
+				dstate = "off";
+			}
+				que01.style.opacity = "2";
+				spa01.style.opacity = "0";
+				spa03.style.opacity = "0";
+				spa04.style.opacity = "0";
+				spa05.style.opacity = "0";
+				que03.style.opacity = "2";
+				que04.style.opacity = "2";
+				que05.style.opacity = "2";
+				hispa03.style.opacity = "0";
+				hispa01.style.opacity = "0";
+				hispa04.style.opacity = "0";
+				hispa05.style.opacity = "0";
+				}
+		</script>
+
+
+		<script type="text/javascript">
+				var estate = "off";
+			que03.onclick = function(){
+			if(estate == "off"){
+				ee.play();
+				spa03.style.opacity = "2";
+				que03.style.opacity = "0";
+				ten.style.opacity = "0";
+				tten.style.opacity = "0";
+				hispa03.style.opacity = "2";
+				bb.pause();
+				estate = "on";
+			}else{
+				ee.pause();
+				bb.play();
+				spa03.style.opacity = "0";
+				que03.style.opacity = "2";
+				ten.style.opacity = "2";
+				tten.style.opacity = "2";
+				hispa03.style.opacity = "0";
+				estate = "off";
+			}
+				que01.style.opacity = "2";
+				spa01.style.opacity = "0";
+				spa02.style.opacity = "0";
+				spa04.style.opacity = "0";
+				spa05.style.opacity = "0";
+				que02.style.opacity = "2";
+				que04.style.opacity = "2";
+				que05.style.opacity = "2";
+				hispa02.style.opacity = "0";
+				hispa01.style.opacity = "0";
+				hispa04.style.opacity = "0";
+				hispa05.style.opacity = "0";
+				}
+		</script>
+
+
+		<script type="text/javascript">
+				var fstate = "off";
+			que04.onclick = function(){
+			if(fstate == "off"){
+				ff.play();
+				spa04.style.opacity = "2";
+				que04.style.opacity = "0";
+				ten.style.opacity = "0";
+				tten.style.opacity = "0";
+				hispa04.style.opacity = "2";
+				bb.pause();
+				fstate = "on";
+			}else{
+				ff.pause();
+				bb.play();
+				spa04.style.opacity = "0";
+				que04.style.opacity = "2";
+				ten.style.opacity = "2";
+				tten.style.opacity = "2";
+				hispa04.style.opacity = "0";
+				fstate = "off";
+			}
+				que01.style.opacity = "2";
+				spa01.style.opacity = "0";
+				spa02.style.opacity = "0";
+				spa03.style.opacity = "0";
+				spa05.style.opacity = "0";
+				que02.style.opacity = "2";
+				que03.style.opacity = "2";
+				que05.style.opacity = "2";
+				hispa02.style.opacity = "0";
+				hispa01.style.opacity = "0";
+				hispa03.style.opacity = "0";
+				hispa05.style.opacity = "0";
+				}
+		</script>
+
+
+		<script type="text/javascript">
+				var gstate = "off";
+			que05.onclick = function(){
+			if(gstate == "off"){
+				gg.play();
+				spa05.style.opacity = "2";
+				que05.style.opacity = "0";
+				ten.style.opacity = "0";
+				tten.style.opacity = "0";
+				hispa05.style.opacity = "2";
+				bb.pause();
+				gstate = "on";
+			}else{
+				gg.pause();
+				bb.play();
+				spa05.style.opacity = "0";
+				que05.style.opacity = "2";
+				ten.style.opacity = "2";
+				tten.style.opacity = "2";
+				hispa05.style.opacity = "0";
+				gstate = "off";
+			}
+				que01.style.opacity = "2";
+				spa01.style.opacity = "0";
+				spa02.style.opacity = "0";
+				spa03.style.opacity = "0";
+				spa04.style.opacity = "0";
+				que02.style.opacity = "2";
+				que03.style.opacity = "2";
+				que04.style.opacity = "2";
+				hispa04.style.opacity = "0";
+				hispa02.style.opacity = "0";
+				hispa01.style.opacity = "0";
+				hispa03.style.opacity = "0";
+			
+				}
+		</script>
+
+
+<script type="text/javascript">
+	//아래 코드를 삽입하면 drag 클래스가 적용된 객체들은 드래그가 가능합니다.
+	(function(){
+		var d = false;
+		var target,dx,dy;
+		var t = document.getElementsByClassName("drag");
+		for(var i=0; i<t.length; i++){
+			t[i].style.display = "block";
+			t[i].style.position = "absolute";
+			t[i].style.cursor = "pointer";
+			t[i].ondragstart = function(e){e.preventDefault();};
+			t[i].onmousedown = function(e){ d = true; dx = e.offsetX; dy = e.offsetY; target = e.target;}
+			t[i].onmouseup = function(){ d = false;}
+			window.onmousemove = function(e){ 
+				if(d){ target.style.left = (e.clientX - dx) + "px";
+					target.style.top = (e.clientY - dy) + "px";}
+			}
+		}
+	})();
+	</script>
+</html>
